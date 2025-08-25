@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رحلة خالد - Khalid's Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* [Your original CSS, unchanged] */
+        /* ... */
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">رحلة خالد</div>
+            <div class="loading-text">مرحباً بك في رحلتي</div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="floating-dot"></div>
+        <div class="floating-dot"></div>
+        <div class="floating-dot"></div>
+        <div class="floating-dot"></div>
+    </div>
+
+    <!-- Header -->
+    <!-- [Your header HTML, unchanged] -->
+
+    <!-- Hero Section -->
+    <!-- [Your hero HTML, unchanged] -->
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Blog Section -->
+        <section class="section" id="blog">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span data-ar="أحدث المقالات" data-en="Latest Articles">أحدث المقالات</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span data-ar="مجموعة من الأفكار والتجارب التي أشاركها معك" data-en="A collection of thoughts and experiences I share with you">مجموعة من الأفكار والتجارب التي أشاركها معك</span>
+                </p>
+            </div>
+            <div class="blog-grid">
+                <!-- Static blog posts here (your originals) -->
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <!-- [Your newsletter HTML, unchanged] -->
+    </main>
+
+    <!-- Footer -->
+    <!-- [Your footer HTML, unchanged] -->
+
+    <script>
+        // ----- BEGIN: Your new dynamic function -----
+        function addBlogPost(titleAr, titleEn, categoryAr, categoryEn, dateAr, dateEn, descAr, descEn, emoji) {
+            const blogGrid = document.querySelector('.blog-grid');
+            const article = document.createElement('article');
+            article.className = 'blog-card';
+            article.onclick = () => openArticle(titleAr, titleEn);
+
+            article.innerHTML = `
+                <div class="blog-card-image">${emoji}</div>
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <span class="blog-card-category" data-ar="${categoryAr}" data-en="${categoryEn}">${categoryAr}</span>
+                        <span data-ar="${dateAr}" data-en="${dateEn}">${dateAr}</span>
+                    </div>
+                    <h3>
+                        <span data-ar="${titleAr}" data-en="${titleEn}">${titleAr}</span>
+                    </h3>
+                    <p>
+                        <span data-ar="${descAr}" data-en="${descEn}">${descAr}</span>
+                    </p>
+                    <a href="#" class="read-more">
+                        <span data-ar="اقرأ المزيد" data-en="Read More">اقرأ المزيد</span>
+                        <span>←</span>
+                    </a>
+                </div>
+            `;
+
+            blogGrid.appendChild(article);
+            updateLanguage(); // Refresh language
+        }
+        // ----- END: Your new dynamic function -----
+
+        // [Your original JavaScript code, unchanged]
+        // You can call addBlogPost(...) anywhere!
+    </script>
+</body>
+</html>
